@@ -31,9 +31,9 @@ class _Dots extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _Dot(0),
-          _Dot(1),
-          _Dot(2),
+          _Dot(index: 0),
+          _Dot(index: 1),
+          _Dot(index: 2),
         ],
       ),
     );
