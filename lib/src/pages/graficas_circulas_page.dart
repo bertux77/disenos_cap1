@@ -73,17 +73,27 @@ class CustomRadialProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      height: 150,
-      //color: Colors.red,
-      child: RadialProgress(
-        porcentaje: porcentaje,
-        colorPrimario: color,
-        colorSecundario: Colors.grey,
-        grosorfondo: 6,
-        grosorCirculo: 8,
-      ),
+    return Stack(
+      children: [
+        Container(
+          width: 150,
+          height: 150,
+          //color: Colors.red,
+          child: RadialProgress(
+            porcentaje: porcentaje,
+            colorPrimario: color,
+            colorSecundario: Colors.grey,
+            grosorfondo: 12,
+            grosorCirculo: 8,
+          ),
+        ),
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment.center,
+            child: Text('$porcentaje%')                
+          ),
+        )
+      ]
     );
   }
 }
