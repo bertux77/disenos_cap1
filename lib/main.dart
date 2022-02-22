@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
-      //home: GraficasCircularesPage(),
-      home: HeadersPage(),
+      home: GraficasCircularesPage(),
+      //home: HeadersPage(),
     );
   }
 }
