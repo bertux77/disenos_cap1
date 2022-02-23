@@ -22,14 +22,18 @@ class _HeadersPageState extends State<HeadersPage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.refresh),
         onPressed: () {
+          index +=1;
+          print('index: $index');
           setState(() {
-            index++;
-            print('index: $index');
+            
           });
         },
       ),
-      body: Container(
-        child: headers[index],
+      body: AnimatedContainer(
+        duration: const Duration(milliseconds: 4000),
+        child: Container(
+          child: headers[index],
+        ),
       ),
     );
   }

@@ -5,7 +5,8 @@ class HeaderCuadrado extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      color: const Color(0xff615AAB),
+      color: const Color(0xff615AAB), 
+     
     );
   }
 }
@@ -14,6 +15,7 @@ class HeaderBordersRedondeados extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       height: 300,
       decoration: const BoxDecoration(
           color: Color(0xff615AAB),
@@ -28,6 +30,7 @@ class HeaderDiagonal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+     
       height: double.infinity,
       width: double.infinity,
       //color: const Color(0xff615AAB),
