@@ -7,6 +7,7 @@ class BotonGordo extends StatelessWidget {
   final Color color1;
   final Color color2;
   final Function()? onPressed;
+ // final String url;
 
   const BotonGordo(
       {Key? key,
@@ -14,7 +15,9 @@ class BotonGordo extends StatelessWidget {
       required this.texto,
       required this.color1,
       required this.color2,
-      this.onPressed})
+      this.onPressed,
+      //required this.url,
+      })
       : super(key: key);
 
   @override

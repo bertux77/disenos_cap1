@@ -178,7 +178,7 @@ class _ListaTareas extends StatelessWidget {
     _ListItem(titulo: 'Subscriptions', color: Color(0xffF7CDD5)),
     _ListItem(titulo: 'Books', color: Color(0xffFCEBAF)),
   ];
-
+ 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

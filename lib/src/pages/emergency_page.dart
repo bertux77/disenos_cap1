@@ -9,38 +9,35 @@ class ItemBoton {
   final String texto;
   final Color color1;
   final Color color2;
+  final String url;
 
-  ItemBoton(this.icon, this.texto, this.color1, this.color2);
+
+  ItemBoton(this.icon, this.texto, this.color1, this.color2, this.url);
 }
 
 class EmergencyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = <ItemBoton>[
-      ItemBoton(FontAwesomeIcons.carCrash, 'Motor Accident',
-          const Color(0xff6989F5), const Color(0xff906EF5)),
-      ItemBoton(FontAwesomeIcons.plus, 'Medical Emergency',
-          const Color(0xff66A9F2), const Color(0xff536CF6)),
-      ItemBoton(FontAwesomeIcons.theaterMasks, 'Theft / Harrasement',
-          const Color(0xffF2D572), const Color(0xffE06AA3)),
-      ItemBoton(FontAwesomeIcons.biking, 'Awards', const Color(0xff317183),
-          const Color(0xff46997D)),
-      ItemBoton(FontAwesomeIcons.carCrash, 'Motor Accident',
-          const Color(0xff6989F5), const Color(0xff906EF5)),
-      ItemBoton(FontAwesomeIcons.plus, 'Medical Emergency',
-          const Color(0xff66A9F2), const Color(0xff536CF6)),
-      ItemBoton(FontAwesomeIcons.theaterMasks, 'Theft / Harrasement',
-          const Color(0xffF2D572), const Color(0xffE06AA3)),
-      ItemBoton(FontAwesomeIcons.biking, 'Awards', const Color(0xff317183),
-          const Color(0xff46997D)),
-      ItemBoton(FontAwesomeIcons.carCrash, 'Motor Accident',
-          const Color(0xff6989F5), const Color(0xff906EF5)),
-      ItemBoton(FontAwesomeIcons.plus, 'Medical Emergency',
-          const Color(0xff66A9F2), const Color(0xff536CF6)),
-      ItemBoton(FontAwesomeIcons.theaterMasks, 'Theft / Harrasement',
-          const Color(0xffF2D572), const Color(0xffE06AA3)),
-      ItemBoton(FontAwesomeIcons.biking, 'Awards', const Color(0xff317183),
-          const Color(0xff46997D)),
+      ItemBoton(FontAwesomeIcons.twitter, 'Twitter Animation',
+          const Color(0xff56CCF2), const Color(0xff2F80ED), 'twitter'),
+      ItemBoton(FontAwesomeIcons.angleDoubleUp, 'Sliver Header Pegado',
+          const Color(0xff556270), const Color(0xffFF6B6B), 'sliver'),
+      ItemBoton(FontAwesomeIcons.images, 'Sliders DOTS',
+          const Color(0xffF2D572), const Color(0xffE06AA3), 'sliders'),
+      ItemBoton(FontAwesomeIcons.pinterest, 'Pinterest Grid', const Color(0xff3c1053),
+          const Color(0xffad5389), 'pinterest'),
+      ItemBoton(FontAwesomeIcons.dog, 'DOG Animations',
+          const Color(0xff33001b), const Color(0xffff0084), 'dog'),
+      ItemBoton(FontAwesomeIcons.angleUp, 'Headers diferentes',
+          const Color(0xff66A9F2), const Color(0xff536CF6), 'headers'),
+      ItemBoton(FontAwesomeIcons.circleNotch, 'Graficas Circulares',
+          const Color(0xffF2D572), const Color(0xffE06AA3), 'graficas'),
+      ItemBoton(FontAwesomeIcons.penFancy, 'Animaciones Animate_Do', const Color(0xff317183),
+          const Color(0xff46997D), 'animate_do'),
+      ItemBoton(FontAwesomeIcons.square, 'Cuadrado en Movimiento',
+          const Color(0xff6989F5), const Color(0xff906EF5), 'cuadrado'),
+      
     ];
 
     List<Widget> itemMap = items
@@ -52,8 +49,9 @@ class EmergencyPage extends StatelessWidget {
               texto: item.texto,
               color1: item.color1,
               color2: item.color2,
+             
               onPressed: () {
-                print('cucu');
+                Navigator.pushNamed(context, item.url);
               },
             ),
           ),
@@ -86,9 +84,9 @@ class _Encabezado extends StatelessWidget {
     return Stack(
       children: [
         const IconHeader(
-          icon: FontAwesomeIcons.plus,
-          titulo: 'Asistencia Medica',
-          subtitulo: 'Has solicitado',
+          icon: FontAwesomeIcons.theaterMasks,
+          titulo: 'Diseños en Flutter',
+          subtitulo: 'By Alberto Carrión',
           color1: Color(0xff536cf6),
           color2: Color(0xff66a9f2),
         ),

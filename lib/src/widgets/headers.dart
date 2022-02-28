@@ -390,7 +390,7 @@ class IconHeader extends StatelessWidget {
         Column(
           children: [
             const SizedBox(
-              height: 60,
+              height: 10,
               width: double.infinity,
             ),
             Text(

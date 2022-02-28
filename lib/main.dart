@@ -1,7 +1,7 @@
-import 'package:cap1/src/pages/navegacion_page.dart';
-import 'package:cap1/src/pages/twitter_page.dart';
+import 'package:cap1/src/labs/slideshow_page.dart';
+import 'package:cap1/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cap1/src/pages/animate_do_page.dart';
+import 'package:cap1/src/pages/pages.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
-      home: NavegacionPage(),
+      //home: EmergencyPage(),
+      initialRoute: 'home',
+      routes: {
+        'home': (_) => HomePage(),
+        'twitter': (_) => TwitterPage(),
+        'sliver': (_) => SliverListPage(),
+        'sliders': (_) => SlideShowPage(),
+        'pinterest': (_) => PinterestPage(),
+        'dog': (_) => NavegacionPage(),
+        'headers': (_) => const HeadersPage2(),
+        'graficas': (_) => const GraficasCircularesPage(),
+        'animate_do': (_) => AnimateDoPage(),
+        'cuadrado': (_) => const AnimacionesPage(),
+
+      },
     );
   }
 }
