@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
       //home: EmergencyPage(),
-      initialRoute: 'home',
+      initialRoute: 'emergency',
       routes: {
         'home': (_) => HomePage(),
         'twitter': (_) => TwitterPage(),
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         'graficas': (_) => const GraficasCircularesPage(),
         'animate_do': (_) => AnimateDoPage(),
         'cuadrado': (_) => const AnimacionesPage(),
-
+        'emergency': (_) => EmergencyPage(),
       },
     );
   }

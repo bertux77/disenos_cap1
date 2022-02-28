@@ -390,7 +390,7 @@ class IconHeader extends StatelessWidget {
         Column(
           children: [
             const SizedBox(
-              height: 10,
+              height: 50,
               width: double.infinity,
             ),
             Text(
@@ -398,7 +398,7 @@ class IconHeader extends StatelessWidget {
               style: TextStyle(fontSize: 20, color: colorBlanco),
             ),
             const SizedBox(
-              height: 16,
+              height: 10,
             ),
             Text(
               titulo,
@@ -408,7 +408,7 @@ class IconHeader extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 16,
+              height: 2,
             ),
             FaIcon(
               icon,
