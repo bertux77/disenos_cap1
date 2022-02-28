@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HeaderCuadrado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      color: const Color(0xff615AAB), 
-     
+      color: const Color(0xff615AAB),
     );
   }
 }
@@ -15,7 +15,6 @@ class HeaderBordersRedondeados extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       height: 300,
       decoration: const BoxDecoration(
           color: Color(0xff615AAB),
@@ -30,7 +29,6 @@ class HeaderDiagonal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     
       height: double.infinity,
       width: double.infinity,
       //color: const Color(0xff615AAB),
@@ -350,5 +348,102 @@ class _HeaderMultiCurvasGradient extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     // TODO: implement shouldRepaint
     return true;
+  }
+}
+
+class IconHeader extends StatelessWidget {
+  final IconData icon;
+  final String titulo;
+  final String subtitulo;
+  final Color color1;
+  final Color color2;
+  const IconHeader({
+    Key? key,
+    required this.icon,
+    required this.titulo,
+    required this.subtitulo,
+    this.color1 = Colors.grey,
+    this.color2 = Colors.blueGrey,
+  }) : super(key: key);
+
+  // Color(0xff526bf6),
+  //           Color(0xff67acf2),
+
+  @override
+  Widget build(BuildContext context) {
+    final colorBlanco = Colors.white.withOpacity(0.7);
+    return Stack(
+      children: [
+        _IconHeaderBackground(
+          color1: color1,
+          color2: color2,
+        ),
+        Positioned(
+          top: -30,
+          left: -50,
+          child: FaIcon(
+            icon,
+            size: 200,
+            color: Colors.white.withOpacity(0.2),
+          ),
+        ),
+        Column(
+          children: [
+            const SizedBox(
+              height: 60,
+              width: double.infinity,
+            ),
+            Text(
+              subtitulo,
+              style: TextStyle(fontSize: 20, color: colorBlanco),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Text(
+              titulo,
+              style: TextStyle(
+                  fontSize: 25,
+                  color: colorBlanco,
+                  fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            FaIcon(
+              icon,
+              size: 60,
+              color: colorBlanco,
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class _IconHeaderBackground extends StatelessWidget {
+  final Color color1;
+  final Color color2;
+  const _IconHeaderBackground({
+    Key? key,
+    required this.color1,
+    required this.color2,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 230,
+      decoration: BoxDecoration(
+          //color: Colors.red,
+          borderRadius:
+              const BorderRadius.only(bottomLeft: Radius.circular(80)),
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [color1, color2])),
+    );
   }
 }
