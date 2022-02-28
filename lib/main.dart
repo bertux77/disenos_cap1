@@ -1,4 +1,5 @@
 import 'package:cap1/src/labs/slideshow_page.dart';
+import 'package:cap1/src/pages/home_hero_page.dart';
 import 'package:cap1/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cap1/src/pages/pages.dart';
@@ -14,9 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
       //home: EmergencyPage(),
-      initialRoute: 'emergency',
+      initialRoute: 'home',
       routes: {
-        'home': (_) => HomePage(),
+        'home': (_) => HomeHeroPage(),
         'twitter': (_) => TwitterPage(),
         'sliver': (_) => SliverListPage(),
         'sliders': (_) => SlideShowPage(),

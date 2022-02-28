@@ -7,7 +7,7 @@ class BotonGordo extends StatelessWidget {
   final Color color1;
   final Color color2;
   final Function()? onPressed;
- // final String url;
+  final String url;
 
   const BotonGordo(
       {Key? key,
@@ -16,52 +16,58 @@ class BotonGordo extends StatelessWidget {
       required this.color1,
       required this.color2,
       this.onPressed,
-      //required this.url,
+      required this.url,
       })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onPressed,
-      child: Stack(
-        children: [
-          _BotonGordoBackground(
-            color1: color1,
-            color2: color2,
-            icon: icon,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 110,
-                width: 35,
-              ),
-              FaIcon(
-                icon,
-                color: Colors.white,
-                size: 40,
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Expanded(
-                child: Text(
-                  texto,
-                  style: const TextStyle(color: Colors.white, fontSize: 18),
+      onTap: () {
+        // Navigate to the second screen using a named route.
+        Navigator.pushNamed(context, url);
+      },
+      child: Hero(
+        tag: url,
+        child: Stack(
+          children: [
+            _BotonGordoBackground(
+              color1: color1,
+              color2: color2,
+              icon: icon,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 110,
+                  width: 35,
                 ),
-              ),
-              const FaIcon(
-                FontAwesomeIcons.chevronRight,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                width: 40,
-              ),
-            ],
-          )
-        ],
+                FaIcon(
+                  icon,
+                  color: Colors.white,
+                  size: 40,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: Text(
+                    texto,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
+                const FaIcon(
+                  FontAwesomeIcons.chevronRight,
+                  color: Colors.white,
+                ),
+                const SizedBox(
+                  width: 40,
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

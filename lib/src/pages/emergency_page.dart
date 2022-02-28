@@ -49,6 +49,7 @@ class EmergencyPage extends StatelessWidget {
               texto: item.texto,
               color1: item.color1,
               color2: item.color2,
+              url: item.url,
              
               onPressed: () {
                 Navigator.pushNamed(context, item.url);
@@ -108,24 +109,24 @@ class _Encabezado extends StatelessWidget {
   }
 }
 
-class BotonGordoTemp extends StatelessWidget {
-  const BotonGordoTemp({
-    Key? key,
-  }) : super(key: key);
+// class BotonGordoTemp extends StatelessWidget {
+//   const BotonGordoTemp({
+//     Key? key,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return BotonGordo(
-      color1: const Color(0xff6989f5),
-      color2: const Color(0xff906ef5),
-      icon: FontAwesomeIcons.earlybirds,
-      onPressed: () {
-        print('click');
-      },
-      texto: 'Motor accidentx',
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return BotonGordo(
+//       color1: const Color(0xff6989f5),
+//       color2: const Color(0xff906ef5),
+//       icon: FontAwesomeIcons.earlybirds,
+//       onPressed: () {
+//         print('click');
+//       },
+//       texto: 'Motor accidentx',
+//     );
+//   }
+// }
 
 class PageHeader extends StatelessWidget {
   const PageHeader({
