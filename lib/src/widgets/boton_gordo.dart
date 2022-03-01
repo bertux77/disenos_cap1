@@ -1,3 +1,5 @@
+import 'package:cap1/src/pages/home_hero_page.dart';
+import 'package:cap1/src/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -7,28 +9,30 @@ class BotonGordo extends StatelessWidget {
   final Color color1;
   final Color color2;
   final Function()? onPressed;
-  final String url;
+  final Widget url;
+  final String id;
 
-  const BotonGordo(
-      {Key? key,
-      required this.icon,
-      required this.texto,
-      required this.color1,
-      required this.color2,
-      this.onPressed,
-      required this.url,
-      })
-      : super(key: key);
+  const BotonGordo({
+    Key? key,
+    required this.icon,
+    required this.texto,
+    required this.color1,
+    required this.color2,
+    this.onPressed,
+    required this.url,
+    required this.id,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // Navigate to the second screen using a named route.
-        Navigator.pushNamed(context, url);
-      },
+      onTap: () => Navigator.push(
+          context,
+          PageRouteBuilder(
+              transitionDuration: Duration(seconds: 2),
+              pageBuilder: (_, __, ___) => url)),
       child: Hero(
-        tag: url,
+        tag: id,
         child: Stack(
           children: [
             _BotonGordoBackground(

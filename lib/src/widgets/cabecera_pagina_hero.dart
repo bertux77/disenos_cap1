@@ -6,79 +6,111 @@ class CabeceraPaginaHero extends StatelessWidget {
   final String texto;
   final Color color;
   final String id;
-  const CabeceraPaginaHero({Key? key, required this.icon, required this.texto, required this.color, required this.id}) : super(key: key);
+  const CabeceraPaginaHero(
+      {Key? key,
+      required this.icon,
+      required this.texto,
+      required this.color,
+      required this.id})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: id,
-      child: Stack(
-        children: [
-         
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Stack(
-                children: [
-                  Positioned(
-                    right: -20,
-                    top: -20,
-                    child: FaIcon(
-                      icon,
-                      size: 150,
-                      color: Colors.white.withOpacity(0.2),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      children: [
+        const SizedBox(
+          height: 25,
+        ),
+        Hero(
+          tag: id,
+          child: Stack(
             children: [
-              const SizedBox(width: 20,),
-              GestureDetector(
-                onTap: (){
-                  Navigator.pushNamed(context, 'home');
-                },
-                child: const FaIcon(
-                  FontAwesomeIcons.arrowLeft,
-                  color: Colors.white,
-                  size: 16,
-                ),
+              _BotonGordoBackground(
+                color: color,
+                icon: icon,
               ),
-              const SizedBox(
-                height: 110,
-                width: 80,
-              ),
-              FaIcon(
-                icon,
-                color: Colors.white,
-                size: 50,
-              ),
-              const SizedBox(
-                width: 40,
-              ),
-              Expanded(
-                child: Text(
-                  texto,
-                  style: const TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
-              const FaIcon(
-                FontAwesomeIcons.hamburger,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                width: 40,
-              ),
-              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 110,
+                    width: 80,
+                  ),
+                  // FaIcon(
+                  //   icon,
+                  //   color: Colors.white,
+                  //   size: 40,
+                  // ),
+                  const SizedBox(
+                    width: 0,
+                  ),
+                  Text(
+                    texto,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  const FaIcon(
+                    FontAwesomeIcons.chevronRight,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    width: 40,
+                  ),
+                ],
+              )
             ],
-        
           ),
-          
-        ],
-        
-      ),
+        ),
+      ],
     );
-  
+  }
+}
+
+class _BotonGordoBackground extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  //final Color color2;
+
+  const _BotonGordoBackground({
+    Key? key,
+    required this.icon,
+    required this.color,
+    // required this.color2,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Stack(
+            children: [
+              Positioned(
+                right: -20,
+                top: -20,
+                child: FaIcon(
+                  icon,
+                  size: 150,
+                  color: Colors.white.withOpacity(0.2),
+                ),
+              )
+            ],
+          ),
+        ),
+        width: double.infinity,
+        height: 80,
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                offset: const Offset(4, 6),
+                blurRadius: 10)
+          ],
+          borderRadius: BorderRadius.circular(15),
+          color: color,
+          // gradient: LinearGradient(
+          //   colors: [color1, color2],
+          // )),
+        ));
   }
 }

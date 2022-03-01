@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:cap1/src/pages/home_hero_page.dart';
 import 'package:cap1/src/widgets/boton_gordo.dart';
 import 'package:cap1/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ class ItemBoton {
   final Color color2;
   final String url;
 
-
   ItemBoton(this.icon, this.texto, this.color1, this.color2, this.url);
 }
 
@@ -20,24 +20,23 @@ class EmergencyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final items = <ItemBoton>[
       ItemBoton(FontAwesomeIcons.twitter, 'Twitter Animation',
-          const Color(0xff56CCF2), const Color(0xff2F80ED), 'twitter'),
+          const Color(0xff56CCF2), const Color(0xff2F80ED), '1'),
       ItemBoton(FontAwesomeIcons.angleDoubleUp, 'Sliver Header Pegado',
-          const Color(0xff556270), const Color(0xffFF6B6B), 'sliver'),
+          const Color(0xff556270), const Color(0xffFF6B6B), '2'),
       ItemBoton(FontAwesomeIcons.images, 'Sliders DOTS',
-          const Color(0xffF2D572), const Color(0xffE06AA3), 'sliders'),
-      ItemBoton(FontAwesomeIcons.pinterest, 'Pinterest Grid', const Color(0xff3c1053),
-          const Color(0xffad5389), 'pinterest'),
-      ItemBoton(FontAwesomeIcons.dog, 'DOG Animations',
-          const Color(0xff33001b), const Color(0xffff0084), 'dog'),
+          const Color(0xffF2D572), const Color(0xffE06AA3), '3'),
+      ItemBoton(FontAwesomeIcons.pinterest, 'Pinterest Grid',
+          const Color(0xff3c1053), const Color(0xffad5389), '4'),
+      ItemBoton(FontAwesomeIcons.dog, 'DOG Animations', const Color(0xff33001b),
+          const Color(0xffff0084), '5'),
       ItemBoton(FontAwesomeIcons.angleUp, 'Headers diferentes',
-          const Color(0xff66A9F2), const Color(0xff536CF6), 'headers'),
+          const Color(0xff66A9F2), const Color(0xff536CF6), '6'),
       ItemBoton(FontAwesomeIcons.circleNotch, 'Graficas Circulares',
-          const Color(0xffF2D572), const Color(0xffE06AA3), 'graficas'),
-      ItemBoton(FontAwesomeIcons.penFancy, 'Animaciones Animate_Do', const Color(0xff317183),
-          const Color(0xff46997D), 'animate_do'),
+          const Color(0xffF2D572), const Color(0xffE06AA3), '7'),
+      ItemBoton(FontAwesomeIcons.penFancy, 'Animaciones Animate_Do',
+          const Color(0xff317183), const Color(0xff46997D), '8'),
       ItemBoton(FontAwesomeIcons.square, 'Cuadrado en Movimiento',
-          const Color(0xff6989F5), const Color(0xff906EF5), 'cuadrado'),
-      
+          const Color(0xff6989F5), const Color(0xff906EF5), '9'),
     ];
 
     List<Widget> itemMap = items
@@ -49,11 +48,12 @@ class EmergencyPage extends StatelessWidget {
               texto: item.texto,
               color1: item.color1,
               color2: item.color2,
-              url: item.url,
-             
-              onPressed: () {
-                Navigator.pushNamed(context, item.url);
-              },
+              url: HomeHeroPage(),
+              id: item.url,
+
+              // onPressed: () {
+              //   Navigator.pushNamed(context, item.url);
+              // },
             ),
           ),
         )

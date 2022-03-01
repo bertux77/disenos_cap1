@@ -1,3 +1,4 @@
+import 'package:cap1/src/pages/pages.dart';
 import 'package:cap1/src/widgets/boton_gordo.dart';
 import 'package:cap1/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
@@ -8,66 +9,76 @@ class HomeHeroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = [
-      const BotonGordo(
+      BotonGordo(
           icon: FontAwesomeIcons.twitter,
           texto: 'Twitter Animation',
           color1: Color(0xff56CCF2),
           color2: Color(0xff2F80ED),
-          url: 'twitter'),
-      const BotonGordo(
+          url: TwitterPage(),
+          id: '1'),
+      BotonGordo(
           icon: FontAwesomeIcons.angleDoubleDown,
           texto: 'Sliver Header Pegado',
           color1: Color(0xff556270),
           color2: Color(0xffFF6B6B),
-          url: 'sliver'),
-      const BotonGordo(
+          url: SliverListPage(),
+          id: '2'),
+      BotonGordo(
           icon: FontAwesomeIcons.images,
           texto: 'texto: Sliders DOTS',
           color1: Color(0xffF2D572),
           color2: Color(0xffE06AA3),
-          url: 'sliders'),
-      const BotonGordo(
+          url: SlideshowPage(),
+          id: '3'),
+      BotonGordo(
           icon: FontAwesomeIcons.pinterest,
           texto: 'Pinterest Grid',
           color1: Color(0xff3c1053),
           color2: Color(0xffad5389),
-          url: 'pinterest'),
-      const BotonGordo(
+          url: PinterestPage(),
+          id: '4'),
+      BotonGordo(
           icon: FontAwesomeIcons.dog,
           texto: 'Animaciones DOG',
           color1: Color(0xff33001b),
           color2: Color(0xffff0084),
-          url: 'dog'),
+          url: NavegacionPage(),
+          id: '5'),
       const BotonGordo(
           icon: FontAwesomeIcons.angleUp,
           texto: 'Headers diferentes',
           color1: Color(0xff66A9F2),
           color2: Color(0xff536CF6),
-          url: 'headers'),
+          url: HeadersPage2(),
+          id: '6'),
       const BotonGordo(
           icon: FontAwesomeIcons.circleNotch,
           texto: 'Graficas Circulares',
           color1: Color(0xffF2D572),
           color2: Color(0xffE06AA3),
-          url: 'graficas'),
-      const BotonGordo(
+          url: GraficasCircularesPage(),
+          id: '7'),
+      BotonGordo(
           icon: FontAwesomeIcons.penFancy,
           texto: 'Animaciones Animate_Do',
           color1: Color(0xff317183),
           color2: Color(0xff46997D),
-          url: 'animate_do'),
+          url: AnimateDoPage(),
+          id: '8'),
       const BotonGordo(
           icon: FontAwesomeIcons.square,
           texto: 'Cuadrado en Movimiento',
           color1: Color(0xff6989F5),
           color2: Color(0xff906EF5),
-          url: 'cuadrado'),
-      const BotonGordo(
+          url: AnimacionesPage(),
+          id: '9'),
+      BotonGordo(
           icon: FontAwesomeIcons.solidArrowAltCircleLeft,
           texto: 'Botones Gordos con deslizamientos',
           color1: Color(0xffF37335),
           color2: Color(0xffFDC830),
-          url: 'emergency'),
+          url: EmergencyPage(),
+          id: '10'),
     ];
 
     List<Widget> itemMap = items
@@ -80,9 +91,10 @@ class HomeHeroPage extends StatelessWidget {
               color1: item.color1,
               color2: item.color2,
               url: item.url,
-              onPressed: () {
-                Navigator.pushNamed(context, item.url);
-              }, 
+              id: item.id,
+              // onPressed: () {
+              //   Print('cucu');
+              // },
             ),
           ),
         )
@@ -196,8 +208,6 @@ class _Encabezado extends StatelessWidget {
     );
   }
 }
-
-
 
 class PageHeader extends StatelessWidget {
   const PageHeader({
