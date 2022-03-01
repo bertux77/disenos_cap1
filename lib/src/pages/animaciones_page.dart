@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/animation/curves.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math' as Math;
+
+import '../widgets/cabecera_pagina_hero.dart';
 
 class AnimacionesPage extends StatelessWidget {
   const AnimacionesPage({Key? key}) : super(key: key);
@@ -8,8 +10,19 @@ class AnimacionesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: CuadradoAnimado(),
+      body: Column(
+        children: [
+          const CabeceraPaginaHero(
+                color: Colors.blue,
+                icon: FontAwesomeIcons.square,
+                id: '9',
+                texto: 'Cuadrado en Movimiento',
+              ),
+          const SizedBox(height: 80,),
+          Center(
+            child: CuadradoAnimado(),
+          ),
+        ],
       ),
     );
   }

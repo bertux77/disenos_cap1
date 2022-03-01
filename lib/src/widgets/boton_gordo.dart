@@ -1,5 +1,3 @@
-import 'package:cap1/src/pages/home_hero_page.dart';
-import 'package:cap1/src/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -25,12 +23,13 @@ class BotonGordo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.push(
+    return MaterialButton(
+      onPressed: () => Navigator.push(
           context,
           PageRouteBuilder(
-              transitionDuration: Duration(seconds: 2),
+              transitionDuration: Duration(milliseconds: 1000),
               pageBuilder: (_, __, ___) => url)),
+     
       child: Hero(
         tag: id,
         child: Stack(
@@ -58,7 +57,7 @@ class BotonGordo extends StatelessWidget {
                 Expanded(
                   child: Text(
                     texto,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                    style: const TextStyle(color: Colors.white, fontSize: 18, decoration: TextDecoration.none),
                   ),
                 ),
                 const FaIcon(

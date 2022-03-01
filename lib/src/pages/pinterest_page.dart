@@ -1,7 +1,10 @@
 import 'package:cap1/src/widgets/pinterest_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+
+import '../widgets/cabecera_pagina_hero.dart';
 
 class PinterestPage extends StatelessWidget {
   @override
@@ -12,8 +15,16 @@ class PinterestPage extends StatelessWidget {
         body: Stack(
           alignment: Alignment.center,
           children: [
+             
             PinterestGrid(),
             const _PinterestMenuLocation(),
+
+            const CabeceraPaginaHero(
+              color: Color(0xff3c1053),
+              icon: FontAwesomeIcons.pinterest,
+              id: '4',
+              texto: 'Pinterest Grid',
+            ),
           ],
         ),
         //body: PinterestMenu(),
@@ -102,7 +113,7 @@ class _PinterestGridState extends State<PinterestGrid> {
   Widget build(BuildContext context) {
     return GridView.custom(
       controller: controller,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 130),
       gridDelegate: SliverWovenGridDelegate.count(
         crossAxisCount: 2,
         pattern: [
@@ -132,7 +143,7 @@ class _PinterestItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          color: Colors.blue,
+          color: Color(0xffad5389) ,
           borderRadius: BorderRadius.all(Radius.circular(30))),
       child: Center(
         child: CircleAvatar(

@@ -25,10 +25,10 @@ class HomeHeroPage extends StatelessWidget {
           id: '2'),
       BotonGordo(
           icon: FontAwesomeIcons.images,
-          texto: 'texto: Sliders DOTS',
+          texto: 'Sliders DOTS',
           color1: Color(0xffF2D572),
           color2: Color(0xffE06AA3),
-          url: SlideshowPage(),
+          url: Slides2ShowPage(),
           id: '3'),
       BotonGordo(
           icon: FontAwesomeIcons.pinterest,
@@ -54,8 +54,8 @@ class HomeHeroPage extends StatelessWidget {
       const BotonGordo(
           icon: FontAwesomeIcons.circleNotch,
           texto: 'Graficas Circulares',
-          color1: Color(0xffF2D572),
-          color2: Color(0xffE06AA3),
+          color1: Color(0xffc012ff),
+          color2: Color(0xff6d05e8),
           url: GraficasCircularesPage(),
           id: '7'),
       BotonGordo(

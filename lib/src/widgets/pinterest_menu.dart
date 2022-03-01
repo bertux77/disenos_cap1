@@ -46,7 +46,7 @@ class PinterestMenu extends StatelessWidget {
   PinterestMenu({
     this.mostrar = true,
     this.backgroundColor = Colors.white,
-    this.activeColor = Colors.deepOrange,
+    this.activeColor = const Color(0xff3c1053),
     this.inactiveColor = Colors.blueGrey,
     required this.items,
   });

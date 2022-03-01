@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         'home': (_) => HomeHeroPage(),
         'twitter': (_) => TwitterPage(),
         'sliver': (_) => SliverListPage(),
-        'sliders': (_) => SlideShowPage(),
+        'sliders': (_) => Slides2ShowPage(),
         'pinterest': (_) => PinterestPage(),
         'dog': (_) => NavegacionPage(),
         'headers': (_) => const HeadersPage2(),

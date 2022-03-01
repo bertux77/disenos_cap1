@@ -3,22 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/cabecera_pagina_hero.dart';
+
 class NavegacionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => _NotificationModel(),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.pink,
-          title: const Center(child: Text('DOG Notifications ')),
-        ),
-        body: const Center(
-          child: FaIcon(
-            FontAwesomeIcons.dog,
-            color: Colors.pink,
-            size: 180,
-          ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.pink,
+        //   title: const Center(child: Text('DOG Notifications ')),
+        // ),
+        body: Column(
+          children: const [
+              
+             CabeceraPaginaHero(
+                color: Colors.pink,
+                icon: FontAwesomeIcons.dog,
+                id: '5',
+                texto: 'Animaciones DOG',
+              ),
+             Center(
+              child: FaIcon(
+                FontAwesomeIcons.dog,
+                color: Colors.pink,
+                size: 180,
+              ),
+            ),
+          ],
         ),
         floatingActionButton: const BotonFlotante(),
         bottomNavigationBar: const BottomNavigation(),

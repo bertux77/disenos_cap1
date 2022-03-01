@@ -4,33 +4,36 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../widgets/cabecera_pagina_hero.dart';
+
 class AnimateDoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        elevation: 0,
-        title: const Text('Animate Do'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => TwitterPage()));
-            },
-            icon: const FaIcon(FontAwesomeIcons.twitter),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, CupertinoPageRoute(builder: (_) => AnimateDoPage()));
-            },
-            icon: const FaIcon(FontAwesomeIcons.arrowRight),
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.blue,
+      //   elevation: 0,
+      //   title: const Text('Animate Do'),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         Navigator.push(
+      //             context, MaterialPageRoute(builder: (_) => TwitterPage()));
+      //       },
+      //       icon: const FaIcon(FontAwesomeIcons.twitter),
+      //     ),
+      //     IconButton(
+      //       onPressed: () {
+      //         Navigator.push(
+      //             context, CupertinoPageRoute(builder: (_) => AnimateDoPage()));
+      //       },
+      //       icon: const FaIcon(FontAwesomeIcons.arrowRight),
+      //     ),
+      //   ],
+      // ),
       floatingActionButton: ElasticInRight(
         child: FloatingActionButton(
+          backgroundColor: Color(0xff46997D),
           elevation: 0,
           onPressed: () {},
           child: const FaIcon(FontAwesomeIcons.play),
@@ -38,12 +41,21 @@ class AnimateDoPage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+
+             
+            const CabeceraPaginaHero(
+                color: Color(0xff46997D),
+                icon: FontAwesomeIcons.penFancy,
+                id: '8',
+                texto: 'Animaciones Animate_Do',
+              ),
+            const SizedBox(height: 40,),
             SpinPerfect(
               child: const Icon(
                 Icons.new_releases,
-                color: Colors.blue,
+                color: Color(0xff46997D),
                 size: 40,
               ),
             ),
@@ -64,7 +76,7 @@ class AnimateDoPage extends StatelessWidget {
               child: Container(
                 width: 220,
                 height: 2,
-                color: Colors.blue,
+                color: Color(0xff46997D),
               ),
             )
           ],

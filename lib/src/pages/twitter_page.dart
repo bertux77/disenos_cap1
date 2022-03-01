@@ -13,6 +13,7 @@ class _TwitterPageState extends State<TwitterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(child: Text('hola mundo')),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.orange,
         child: const FaIcon(FontAwesomeIcons.play),

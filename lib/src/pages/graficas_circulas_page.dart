@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../widgets/cabecera_pagina_hero.dart';
 import '../widgets/radial_progress.dart';
 
 class GraficasCircularesPage extends StatefulWidget {
@@ -27,8 +29,15 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
       ),
       //Text('$porcentaje %', style: const TextStyle(fontSize: 50),)
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+         
+          const CabeceraPaginaHero(
+                color: Color(0xff6d05e8),
+                icon: FontAwesomeIcons.circleNotch,
+                id: '7',
+                texto: 'Graficas Circulares',
+              ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -73,27 +82,33 @@ class CustomRadialProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        Container(
-          width: 150,
-          height: 150,
-          //color: Colors.red,
-          child: RadialProgress(
-            porcentaje: porcentaje,
-            colorPrimario: color,
-            colorSecundario: Colors.grey,
-            grosorfondo: 12,
-            grosorCirculo: 8,
-          ),
+        
+        Stack(
+          children: [
+            
+            Container(
+              width: 150,
+              height: 150,
+              //color: Colors.red,
+              child: RadialProgress(
+                porcentaje: porcentaje,
+                colorPrimario: color,
+                colorSecundario: Colors.grey,
+                grosorfondo: 12,
+                grosorCirculo: 8,
+              ),
+            ),
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.center,
+                child: Text('$porcentaje%')                
+              ),
+            )
+          ]
         ),
-        Positioned.fill(
-          child: Align(
-            alignment: Alignment.center,
-            child: Text('$porcentaje%')                
-          ),
-        )
-      ]
+      ],
     );
   }
 }
