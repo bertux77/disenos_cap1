@@ -1,5 +1,6 @@
 import 'package:cap1/src/pages/pages.dart';
 import 'package:cap1/src/widgets/boton_gordo.dart';
+import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:cap1/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
@@ -119,6 +120,7 @@ class HomeHeroPage extends StatelessWidget {
     // );
 
     return Scaffold(
+      drawer: CustomDrawerMenu(),
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
@@ -195,7 +197,9 @@ class _Encabezado extends StatelessWidget {
           right: -10,
           top: 30,
           child: RawMaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(15.0),
             child: const FaIcon(
