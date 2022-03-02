@@ -93,9 +93,6 @@ class HomeHeroPage extends StatelessWidget {
               color2: item.color2,
               url: item.url,
               id: item.id,
-              // onPressed: () {
-              //   Print('cucu');
-              // },
             ),
           ),
         )

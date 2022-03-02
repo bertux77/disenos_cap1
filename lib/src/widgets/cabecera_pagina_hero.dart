@@ -36,25 +36,35 @@ class CabeceraPaginaHero extends StatelessWidget {
                     height: 110,
                     width: 40,
                   ),
-                   FaIcon(
-                     icon,
-                     color: Colors.white,
-                     size: 40,
-                   ),
+                  FaIcon(
+                    icon,
+                    color: Colors.white,
+                    size: 40,
+                  ),
                   const SizedBox(
-                    width: 10,
+                    width: 9,
                   ),
                   Text(
                     texto,
-                    style: const TextStyle(color: Colors.white, fontSize: 18, decoration: TextDecoration.none),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        decoration: TextDecoration.none),
                   ),
-                  // const FaIcon(
-                  //   FontAwesomeIcons.chevronRight,
-                  //   color: Colors.white,
+                  RawMaterialButton(
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(15.0),
+                    child: const FaIcon(
+                      FontAwesomeIcons.ellipsisV,
+                      color: Colors.white,
+                    ),
+                  ),
+                  // const SizedBox(
+                  //   width: 40,
                   // ),
-                  const SizedBox(
-                    width: 40,
-                  ),
                 ],
               )
             ],

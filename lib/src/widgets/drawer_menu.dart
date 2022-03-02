@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../routes/routes.dart';
+
 class CustomDrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,6 @@ class CustomDrawerMenu extends StatelessWidget {
                 value: true,
                 activeColor: Colors.blue,
                 onChanged: (value) {},
-                //onChanged: (value) {}),
               ),
             ),
             ListTile(
@@ -56,7 +57,6 @@ class CustomDrawerMenu extends StatelessWidget {
                 value: true,
                 activeColor: Colors.blue,
                 onChanged: (value) {},
-                //onChanged: (value) {}),
               ),
             )
           ],
@@ -76,14 +76,14 @@ class _ListaDrawerMenu extends StatelessWidget {
       separatorBuilder: (context, i) => const Divider(
         color: Colors.blue,
       ),
-      itemCount: 20,
-      itemBuilder: (context, i) => const ListTile(
+      itemCount: pageRoutes.length,
+      itemBuilder: (context, i) => ListTile(
         leading: FaIcon(
-          FontAwesomeIcons.slideshare,
+          pageRoutes[i].icon,
           color: Colors.blue,
         ),
-        title: Text('Hola Mundo'),
-        trailing: Icon(
+        title: Text(pageRoutes[i].titulo),
+        trailing: const Icon(
           Icons.chevron_right,
           color: Colors.blue,
         ),

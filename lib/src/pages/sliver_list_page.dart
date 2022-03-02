@@ -1,12 +1,12 @@
+import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../widgets/cabecera_pagina_hero.dart';
 
 class SliverListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawerMenu(),
       body: Stack(
         children: [
           _MainScroll(),
@@ -131,42 +131,59 @@ class _Titulo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 20),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-          child: const Text(
-            'NEW',
-            style: TextStyle(color: Color(0xff532128), fontSize: 50),
+    return Row(children: [
+      Column(
+        children: [
+          const SizedBox(height: 20),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: const Text(
+              'NEW',
+              style: TextStyle(color: Color(0xff532128), fontSize: 50),
+            ),
+          ),
+          Stack(
+            children: [
+              const SizedBox(
+                width: 100,
+              ),
+              Positioned(
+                bottom: 8,
+                child: Container(
+                  width: 120,
+                  height: 8,
+                  decoration: const BoxDecoration(color: Color(0xfff7cdd5)),
+                ),
+              ),
+              Container(
+                child: const Text(
+                  'List',
+                  style: TextStyle(
+                      color: Color(0xffd9a3a30),
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+      Container(
+        margin: EdgeInsets.only(left: 60, top: 0),
+        child: RawMaterialButton(
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+          shape: const CircleBorder(),
+          padding: const EdgeInsets.all(15.0),
+          child: const FaIcon(
+            FontAwesomeIcons.ellipsisV,
+            size: 32,
+            color: Colors.black,
           ),
         ),
-        Stack(
-          children: [
-            const SizedBox(
-              width: 100,
-            ),
-            Positioned(
-              bottom: 8,
-              child: Container(
-                width: 120,
-                height: 8,
-                decoration: const BoxDecoration(color: Color(0xfff7cdd5)),
-              ),
-            ),
-            Container(
-              child: const Text(
-                'List',
-                style: TextStyle(
-                    color: Color(0xffd9a3a30),
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        )
-      ],
-    );
+      ),
+    ]);
   }
 }
 
@@ -181,7 +198,7 @@ class _ListaTareas extends StatelessWidget {
     _ListItem(titulo: 'Subscriptions', color: Color(0xffF7CDD5)),
     _ListItem(titulo: 'Books', color: Color(0xffFCEBAF)),
   ];
- 
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
