@@ -1,3 +1,4 @@
+import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:cap1/src/widgets/pinterest_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -12,6 +13,7 @@ class PinterestPage extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => _MenuModel(),
       child: Scaffold(
+        drawer: CustomDrawerMenu(),
         body: Stack(
           alignment: Alignment.center,
           children: [

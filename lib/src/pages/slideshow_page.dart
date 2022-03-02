@@ -1,3 +1,4 @@
+import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:cap1/src/widgets/slideshow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,6 +12,7 @@ class Slides2ShowPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawerMenu(),
       body: Column(
         children: const [
           CabeceraPaginaHero(

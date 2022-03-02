@@ -1,10 +1,18 @@
 import 'package:cap1/src/labs/slideshow_page.dart';
 import 'package:cap1/src/pages/home_hero_page.dart';
 import 'package:cap1/src/pages/home_page.dart';
+import 'package:cap1/src/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:cap1/src/pages/pages.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+  
+  ChangeNotifierProvider(
+    create: (_) => ThemeChanger(),
+    child: const MyApp(),
+    
+    ));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
       //home: EmergencyPage(),

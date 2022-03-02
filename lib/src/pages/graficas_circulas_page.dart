@@ -1,3 +1,4 @@
+import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,6 +17,7 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawerMenu(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.refresh),
         onPressed: () {

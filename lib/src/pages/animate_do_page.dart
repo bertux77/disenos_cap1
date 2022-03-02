@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cap1/src/pages/twitter_page.dart';
+import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,6 +32,7 @@ class AnimateDoPage extends StatelessWidget {
       //     ),
       //   ],
       // ),
+      drawer: CustomDrawerMenu(),
       floatingActionButton: ElasticInRight(
         child: FloatingActionButton(
           backgroundColor: Color(0xff46997D),

@@ -78,7 +78,7 @@ class _Dots extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 70,
+      height: 10,
       //color: Colors.red,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

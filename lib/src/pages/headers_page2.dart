@@ -1,6 +1,8 @@
 import 'package:cap1/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer_menu.dart';
+
 class HeadersPage2 extends StatefulWidget {
   const HeadersPage2({Key? key}) : super(key: key);
 
@@ -26,6 +28,7 @@ class _HeadersPage2State extends State<HeadersPage2> {
     };
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: CustomDrawerMenu(),
       
         floatingActionButton: FloatingActionButton(
         elevation: 0,

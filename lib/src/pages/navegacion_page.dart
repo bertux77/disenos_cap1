@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/cabecera_pagina_hero.dart';
+import '../widgets/drawer_menu.dart';
 
 class NavegacionPage extends StatelessWidget {
   @override
@@ -15,6 +16,7 @@ class NavegacionPage extends StatelessWidget {
         //   backgroundColor: Colors.pink,
         //   title: const Center(child: Text('DOG Notifications ')),
         // ),
+        drawer: CustomDrawerMenu(),
         body: Column(
           children: const [
               

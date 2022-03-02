@@ -129,9 +129,13 @@ class _SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
 class _Titulo extends StatelessWidget {
   const _Titulo({Key? key}) : super(key: key);
 
+ 
+
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+     final size = MediaQuery.of(context).size.width;
+    return Row(
+      children: [
       Column(
         children: [
           const SizedBox(height: 20),
@@ -168,8 +172,10 @@ class _Titulo extends StatelessWidget {
           )
         ],
       ),
+      SizedBox(width: size / 2 - 30, height: 10,),
       Container(
-        margin: EdgeInsets.only(left: 60, top: 0),
+        alignment: Alignment.topRight,
+        margin: const EdgeInsets.only(top: 20),
         child: RawMaterialButton(
           onPressed: () {
             Scaffold.of(context).openDrawer();

@@ -15,7 +15,7 @@ final pageRoutes = <_Route>[
   _Route(FontAwesomeIcons.penFancy, 'Animaciones Animate_Do', AnimateDoPage()),
   _Route(FontAwesomeIcons.square, 'Cuadrado en Movimiento', AnimacionesPage()),
   _Route(FontAwesomeIcons.solidArrowAltCircleLeft,
-      'Botones Gordos con deslizamientos', AnimacionesPage()),
+      'Botones Gordos con deslizamientos', EmergencyPage()),
 ];
 
 class _Route {
