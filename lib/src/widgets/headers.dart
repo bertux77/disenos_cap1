@@ -381,10 +381,14 @@ class IconHeader extends StatelessWidget {
         Positioned(
           top: -30,
           left: -50,
-          child: FaIcon(
-            icon,
-            size: 200,
-            color: Colors.white.withOpacity(0.2),
+          child: ClipRRect(
+            borderRadius:
+              const BorderRadius.only(bottomLeft: Radius.circular(200)),
+            child: FaIcon(
+              icon,
+              size: 200,
+              color: Colors.white.withOpacity(0.2),
+            ),
           ),
         ),
         Column(
@@ -436,6 +440,7 @@ class _IconHeaderBackground extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 230,
+      
       decoration: BoxDecoration(
           //color: Colors.red,
           borderRadius:

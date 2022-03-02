@@ -10,7 +10,7 @@ class CustomDrawerMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context);
     return Drawer(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: appTheme.currentTheme.dialogBackgroundColor,
       child: Container(
         child: Column(
           children: [
@@ -25,10 +25,10 @@ class CustomDrawerMenu extends StatelessWidget {
                 children: [
             
                 Container(
-                  child: const CircleAvatar(
-                    backgroundColor: Colors.blue,
+                  child: CircleAvatar(
+                    backgroundColor: appTheme.currentTheme.colorScheme.secondary,
                     radius: 50,
-                    child: FaIcon(
+                    child: const FaIcon(
                       FontAwesomeIcons.theaterMasks,
                       size: 50,
                       color: Colors.white,
@@ -36,11 +36,11 @@ class CustomDrawerMenu extends StatelessWidget {
                   ),
                 ),
               
-                const Text(
+                Text(
                   'Alberto Carrión',
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.blue,
+                      color: appTheme.currentTheme.colorScheme.secondary,
                       fontWeight: FontWeight.bold),
                 ),
               ]),
@@ -50,14 +50,14 @@ class CustomDrawerMenu extends StatelessWidget {
               child: _ListaDrawerMenu(),
             ),
             ListTile(
-              leading: const Icon(
+              leading: Icon(
                 Icons.lightbulb_outline,
-                color: Colors.blue,
+                color: appTheme.currentTheme.colorScheme.secondary,
               ),
               title: const Text('Dark Mode'),
               trailing: Switch.adaptive(
                 value: appTheme.darkTheme,
-                activeColor: Colors.blue,
+                activeColor: appTheme.currentTheme.colorScheme.secondary,
                 onChanged: (value) {
                   appTheme.darkTheme = value;
                 },
@@ -65,14 +65,14 @@ class CustomDrawerMenu extends StatelessWidget {
             ),
             SafeArea(
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.add_to_home_screen,
-                  color: Colors.blue,
+                  color: appTheme.currentTheme.colorScheme.secondary,
                 ),
                 title: const Text('Custom Theme'),
                 trailing: Switch.adaptive(
                   value: appTheme.customTheme,
-                  activeColor: Colors.blue,
+                  activeColor: appTheme.currentTheme.colorScheme.secondary,
                   onChanged: (value) {
                     appTheme.customTheme = value;
                   },
@@ -91,21 +91,22 @@ class _ListaDrawerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
-      separatorBuilder: (context, i) => const Divider(
-        color: Colors.blue,
+      separatorBuilder: (context, i) => Divider(
+        color: appTheme.primaryColorLight,
       ),
       itemCount: pageRoutes.length,
       itemBuilder: (context, i) => ListTile(
         leading: FaIcon(
           pageRoutes[i].icon,
-          color: Colors.blue,
+          color: appTheme.colorScheme.secondary,
         ),
         title: Text(pageRoutes[i].titulo),
-        trailing: const Icon(
+        trailing: Icon(
           Icons.chevron_right,
-          color: Colors.blue,
+          color: appTheme.colorScheme.secondary,
         ),
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => pageRoutes[i].page));

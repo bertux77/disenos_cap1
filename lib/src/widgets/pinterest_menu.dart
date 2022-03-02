@@ -1,4 +1,4 @@
-import 'package:flutter/gestures.dart';
+import 'package:cap1/src/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,32 +17,6 @@ class PinterestMenu extends StatelessWidget {
   final Color? inactiveColor;
   final List<PinterestButton> items;
 
-  // final List<PinterestButton> items = [
-  //   PinterestButton(
-  //       onPresed: () {
-  //         print('Icon Pie Chart');
-  //       },
-  //       icon: Icons.pie_chart),
-  //   PinterestButton(
-  //     onPresed: () {
-  //       print('Icon Search');
-  //     },
-  //     icon: Icons.search,
-  //   ),
-  //   PinterestButton(
-  //     onPresed: () {
-  //       print('Icon Notifications');
-  //     },
-  //     icon: Icons.notifications,
-  //   ),
-  //   PinterestButton(
-  //     onPresed: () {
-  //       print('User');
-  //     },
-  //     icon: Icons.supervised_user_circle,
-  //   )
-  // ];
-
   PinterestMenu({
     this.mostrar = true,
     this.backgroundColor = Colors.white,
@@ -53,14 +27,15 @@ class PinterestMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeChanger>(context);
     return ChangeNotifierProvider(
       create: (_) => _MenuModel(),
       child: AnimatedOpacity(
           duration: const Duration(milliseconds: 250),
           opacity: (mostrar) ? 1 : 0,
           child: Builder(builder: (BuildContext context) {
-            Provider.of<_MenuModel>(context).backgroundColor = backgroundColor;
-            Provider.of<_MenuModel>(context).activeColor = activeColor;
+            Provider.of<_MenuModel>(context).backgroundColor = appTheme.currentTheme.scaffoldBackgroundColor;
+            Provider.of<_MenuModel>(context).activeColor = (appTheme.darkTheme) ? appTheme.currentTheme.colorScheme.secondary : activeColor;
             Provider.of<_MenuModel>(context).inactiveColor = inactiveColor;
 
             return _PinterestMenuBackground(

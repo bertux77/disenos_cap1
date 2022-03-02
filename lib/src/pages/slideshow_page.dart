@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:cap1/src/theme/theme.dart';
+import 'package:provider/provider.dart';
 import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:cap1/src/widgets/slideshow.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
-
-import '../models/slider_model.dart';
 import '../widgets/cabecera_pagina_hero.dart';
 
 class Slides2ShowPage extends StatelessWidget {
@@ -36,9 +36,11 @@ class MiSlideShow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeChanger>(context);
+    final secondary = appTheme.currentTheme.colorScheme.secondary;
     return SlideShow(
       puntosArriba: true,
-      colorPrimario: Color(0xffE06AA3),
+      colorPrimario: (appTheme.darkTheme) ? secondary : Color(0xffE06AA3),
       colorSecundario: Colors.grey,
       slides: [
         SvgPicture.asset('assets/slide-1.svg'),

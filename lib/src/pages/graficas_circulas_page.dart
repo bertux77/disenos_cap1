@@ -48,7 +48,7 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
                 color: Colors.red,
               ),
               CustomRadialProgress(
-                porcentaje: porcentaje,
+                porcentaje: porcentaje * 1.2,
                 color: Colors.green,
               )
             ],
@@ -57,11 +57,11 @@ class _GraficasCircularesPageState extends State<GraficasCircularesPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomRadialProgress(
-                porcentaje: porcentaje,
+                porcentaje: porcentaje * 1.4,
                 color: Colors.yellow,
               ),
               CustomRadialProgress(
-                porcentaje: porcentaje,
+                porcentaje: porcentaje * 1.6,
                 color: Colors.blue,
               )
             ],
@@ -105,7 +105,9 @@ class CustomRadialProgress extends StatelessWidget {
             Positioned.fill(
               child: Align(
                 alignment: Alignment.center,
-                child: Text('$porcentaje%')                
+                child: (porcentaje > 100) 
+                 ? const Text('100%') 
+                 : Text('$porcentaje%')                
               ),
             )
           ]

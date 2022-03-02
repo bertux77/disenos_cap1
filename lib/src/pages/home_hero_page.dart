@@ -1,14 +1,18 @@
 import 'package:cap1/src/pages/pages.dart';
+import 'package:cap1/src/theme/theme.dart';
 import 'package:cap1/src/widgets/boton_gordo.dart';
 import 'package:cap1/src/widgets/drawer_menu.dart';
 import 'package:cap1/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class HomeHeroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    final appTheme = Provider.of<ThemeChanger>(context);
     final items = [
       BotonGordo(
           icon: FontAwesomeIcons.twitter,
@@ -98,50 +102,38 @@ class HomeHeroPage extends StatelessWidget {
         )
         .toList();
 
-    // return Scaffold(
-    //   body: Stack(children: [
-    //     Container(
-    //       margin: const EdgeInsets.only(top: 160),
-    //       child: ListView(
-    //         physics: const BouncingScrollPhysics(),
-    //         children: [
-    //           const SizedBox(
-    //             height: 80,
-    //           ),
-    //           ...itemMap
-    //         ],
-    //       ),
-    //     ),
-    //     _Encabezado(),
-    //   ]),
-    // );
-
     return Scaffold(
       drawer: CustomDrawerMenu(),
-      body: CustomScrollView(
-        slivers: [
-          SliverPersistentHeader(
-            floating: true,
-            delegate: _SliverCustomHeaderDelegate(
-              child: Container(
-                alignment: Alignment.center,
-                color: Colors.white,
-                child: _Encabezado(),
+      //(appTheme.customTheme) ? Color(0xff16202b) : Colors.white
+      body: Container(
+        color: appTheme.currentTheme.colorScheme.background,
+        child: CustomScrollView(
+          slivers: [
+            SliverPersistentHeader(
+              
+              floating: true,
+              delegate: _SliverCustomHeaderDelegate(
+                child: Container(
+                  alignment: Alignment.center,
+                  color: appTheme.currentTheme.colorScheme.background,
+                  child: _Encabezado(),
+                ),
+                maxheight: 200,
+                minheight: 180,
               ),
-              maxheight: 200,
-              minheight: 180,
             ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              ...items,
-              //...items,
-              const SizedBox(
-                height: 70,
-              )
-            ]),
-          ),
-        ],
+            SliverList(
+              delegate: SliverChildListDelegate([
+                ...items,
+                
+                //...items,
+                const SizedBox(
+                  height: 70,
+                )
+              ]),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -182,6 +174,7 @@ class _Encabezado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      
       children: [
         const IconHeader(
           icon: FontAwesomeIcons.theaterMasks,
@@ -206,23 +199,6 @@ class _Encabezado extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-}
-
-class PageHeader extends StatelessWidget {
-  const PageHeader({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const IconHeader(
-      icon: FontAwesomeIcons.plus,
-      subtitulo: 'Haz Solicitado',
-      titulo: 'Asistencia Medica',
-      color1: Color(0xff526bf6),
-      color2: Color(0xff67acf2),
     );
   }
 }
