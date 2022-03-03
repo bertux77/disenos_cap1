@@ -17,14 +17,13 @@ class ZapatoSizePreview extends StatelessWidget {
       },
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: (fullscreen!) ? 10 : 80,
-          vertical: (fullscreen!) ? 0 : 10,
+          horizontal: (fullscreen!) ? 10 : 20,
+          vertical: (fullscreen!) ? 30 : 10,
         ),
-      
         child: Container(
           width: double.infinity,
           //height: (fullscreen!) ? 300 : 350,
-          height: (fullscreen!) ? 450 : 320,
+          height: (fullscreen!) ? 300 : 320,
           decoration: BoxDecoration(
             color: const Color(0xffffcf53),
             borderRadius: BorderRadius.circular(50),
@@ -32,15 +31,13 @@ class ZapatoSizePreview extends StatelessWidget {
           child: Column(
             children: [
               // Zapato con sombra
-              _ZapatoConSombra(fullscreen: fullscreen,),
-              
-             
-               
-              
+              _ZapatoConSombra(
+                fullscreen: fullscreen,
+              ),
 
               if (!fullscreen!)
-                BounceInUp(child: _TallasZapato()),
-               
+                BounceInUp(
+                    delay: Duration(milliseconds: 750), child: _TallasZapato()),
             ],
           ),
         ),
@@ -55,7 +52,6 @@ class _TallasZapato extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
-        
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: const [
           _TallaIndividual(
@@ -98,7 +94,8 @@ class _TallaIndividual extends StatelessWidget {
         child: Text(
           numero.toString().replaceAll('.0', ''),
           style: TextStyle(
-              color: (numero == seleccionado) ? Colors.white : Color(0xfff1a23a),
+              color:
+                  (numero == seleccionado) ? Colors.white : Color(0xfff1a23a),
               fontSize: 16,
               fontWeight: FontWeight.bold),
         ),
@@ -136,7 +133,7 @@ class _ZapatoConSombra extends StatelessWidget {
             child: _SombraZapato(),
           ),
           Image(
-            width: (fullscreen!) ? 400 : 250,
+            width: (fullscreen!) ? 250 : 250,
             image: AssetImage(zapato),
           )
         ],

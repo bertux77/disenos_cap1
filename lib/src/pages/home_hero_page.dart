@@ -1,4 +1,5 @@
 import 'package:cap1/src/pages/pages.dart';
+import 'package:cap1/src/pages/zapato_page.dart';
 import 'package:cap1/src/theme/theme.dart';
 import 'package:cap1/src/widgets/boton_gordo.dart';
 import 'package:cap1/src/widgets/drawer_menu.dart';
@@ -11,7 +12,6 @@ import 'package:provider/provider.dart';
 class HomeHeroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final appTheme = Provider.of<ThemeChanger>(context);
     final items = [
       BotonGordo(
@@ -79,11 +79,18 @@ class HomeHeroPage extends StatelessWidget {
           id: '9'),
       BotonGordo(
           icon: FontAwesomeIcons.solidArrowAltCircleLeft,
-          texto: 'Botones Gordos con deslizamientos',
+          texto: 'Botones con deslizamientos',
           color1: Color(0xffF37335),
           color2: Color(0xffFDC830),
           url: EmergencyPage(),
           id: '10'),
+      BotonGordo(
+          icon: FontAwesomeIcons.shoePrints,
+          texto: 'Shop Shoes Love',
+          color1: Color(0xffcb2d3e),
+          color2: Color(0xffef473a),
+          url: ZapatoPage(),
+          id: '11'),
     ];
 
     List<Widget> itemMap = items
@@ -110,7 +117,6 @@ class HomeHeroPage extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverPersistentHeader(
-              
               floating: true,
               delegate: _SliverCustomHeaderDelegate(
                 child: Container(
@@ -125,7 +131,7 @@ class HomeHeroPage extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate([
                 ...items,
-                
+
                 //...items,
                 const SizedBox(
                   height: 70,
@@ -174,7 +180,6 @@ class _Encabezado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      
       children: [
         const IconHeader(
           icon: FontAwesomeIcons.theaterMasks,

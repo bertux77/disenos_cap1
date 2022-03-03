@@ -20,7 +20,7 @@ class ZapatoDescPage extends StatelessWidget {
                 child: Material(child: ZapatoSizePreview(fullscreen: true))),
             Positioned(
                 left: 20,
-                top: 20,
+                top: 40,
                 child: FloatingActionButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -43,9 +43,12 @@ class ZapatoDescPage extends StatelessWidget {
                 const ZapatoDescripcion(
                     titulo: 'Nike Air Max 720',
                     descripcion:
-                        "The Nike Air Max 720 goes bigger than ever before with Nike's taller Air unit yet, offering more air underfoot for unimaginable, all-day comfort. Has Air Max gone too far? We hope so."),
+                        "The Nike Air Max 720 goes bigger than ever before with Nike's ..."),
                 _MontoBuyNow(),
                 _ColoresYmas(),
+                SizedBox(
+                  height: 40,
+                ),
                 _BotonesSettings()
               ],
             ),
@@ -60,10 +63,10 @@ class _BotonesSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
-        vertical: 30,
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      // margin: const EdgeInsets.symmetric(
+      //   vertical: 30,
+      // ),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         const _BotonSombreado(
             icon: Icon(Icons.star, color: Colors.red, size: 25)),
@@ -109,19 +112,21 @@ class _ColoresYmas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
         children: [
           Expanded(
               child: Stack(
             children: const [
               Positioned(
-                  left: 90, child: _BotonColor(color: Colors.black26, index: 4)),
+                  left: 90,
+                  child: _BotonColor(color: Colors.black26, index: 4)),
               Positioned(
-                  left: 60, child: _BotonColor(color: Colors.lightGreen, index: 3)),
+                  left: 60,
+                  child: _BotonColor(color: Colors.lightGreen, index: 3)),
               Positioned(
                   left: 30, child: _BotonColor(color: Colors.purple, index: 2)),
-              _BotonColor(color: Colors.green , index: 1),
+              _BotonColor(color: Colors.green, index: 1),
             ],
           )),
 
@@ -149,23 +154,26 @@ class _BotonColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return FadeInLeft(
       delay: Duration(milliseconds: index! * 200),
       child: GestureDetector(
         onTap: () {
           switch (index) {
-            case 1: // verde 
-              Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/verde.png';
+            case 1: // verde
+              Provider.of<ZapatoModel>(context, listen: false).assetImage =
+                  'assets/verde.png';
               break;
             case 2: // azul
-              Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/azul.png';
+              Provider.of<ZapatoModel>(context, listen: false).assetImage =
+                  'assets/azul.png';
               break;
             case 3: // amarillo
-               Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/amarillo.png';
+              Provider.of<ZapatoModel>(context, listen: false).assetImage =
+                  'assets/amarillo.png';
               break;
             case 4: // rojo
-              Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/negro.png';
+              Provider.of<ZapatoModel>(context, listen: false).assetImage =
+                  'assets/negro.png';
               break;
             default:
           }

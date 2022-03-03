@@ -1,10 +1,15 @@
+import 'package:cap1/src/helpers/helpers.dart';
 import 'package:cap1/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/drawer_menu.dart';
 
 class ZapatoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    cambiarStatusDark();
     return Scaffold(
+      drawer: CustomDrawerMenu(),
       //body: CustomZapatoAppBar(),
       //body: ZapatoSizePreview(),
       body: Column(
@@ -20,7 +25,8 @@ class ZapatoPage extends StatelessWidget {
                   children: const [
                     Hero(
                       tag: 'zapato-1',
-                      child: Material(child: ZapatoSizePreview()),),
+                      child: Material(child: ZapatoSizePreview()),
+                    ),
                     ZapatoDescripcion(
                         titulo: 'Nike Air Max 720',
                         descripcion:

@@ -9,8 +9,12 @@ import 'package:provider/provider.dart';
 
 void main() => runApp(MultiProvider(
       providers: [
-        ChangeNotifierProvider(create:(_) => ThemeChanger(1),),
-        ChangeNotifierProvider(create:(_) => ZapatoModel(),)
+        ChangeNotifierProvider(
+          create: (_) => ThemeChanger(1),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ZapatoModel(),
+        )
       ],
       child: const MyApp(),
     ));
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
       //home: EmergencyPage(),
-      initialRoute: 'zapato',
+      initialRoute: 'home',
       routes: {
         'home': (_) => HomeHeroPage(),
         'twitter': (_) => TwitterPage(),

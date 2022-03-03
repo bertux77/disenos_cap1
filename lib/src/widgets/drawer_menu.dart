@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:cap1/src/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,15 +19,14 @@ class CustomDrawerMenu extends StatelessWidget {
               height: 40,
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, 'home');
               },
-              child: Column(
-                children: [
-            
+              child: Column(children: [
                 Container(
                   child: CircleAvatar(
-                    backgroundColor: appTheme.currentTheme.colorScheme.secondary,
+                    backgroundColor:
+                        appTheme.currentTheme.colorScheme.secondary,
                     radius: 50,
                     child: const FaIcon(
                       FontAwesomeIcons.theaterMasks,
@@ -35,7 +35,6 @@ class CustomDrawerMenu extends StatelessWidget {
                     ),
                   ),
                 ),
-              
                 Text(
                   'Alberto Carrión',
                   style: TextStyle(
@@ -45,7 +44,9 @@ class CustomDrawerMenu extends StatelessWidget {
                 ),
               ]),
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             const Expanded(
               child: _ListaDrawerMenu(),
             ),
@@ -98,19 +99,22 @@ class _ListaDrawerMenu extends StatelessWidget {
         color: appTheme.primaryColorLight,
       ),
       itemCount: pageRoutes.length,
-      itemBuilder: (context, i) => ListTile(
-        leading: FaIcon(
-          pageRoutes[i].icon,
-          color: appTheme.colorScheme.secondary,
+      itemBuilder: (context, i) => BounceInUp(
+        child: ListTile(
+          leading: FaIcon(
+            pageRoutes[i].icon,
+            color: appTheme.colorScheme.secondary,
+          ),
+          title: Text(pageRoutes[i].titulo),
+          trailing: Icon(
+            Icons.chevron_right,
+            color: appTheme.colorScheme.secondary,
+          ),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => pageRoutes[i].page));
+          },
         ),
-        title: Text(pageRoutes[i].titulo),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: appTheme.colorScheme.secondary,
-        ),
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => pageRoutes[i].page));
-        },
       ),
     );
   }
