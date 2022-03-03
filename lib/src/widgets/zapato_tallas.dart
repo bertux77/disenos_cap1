@@ -1,26 +1,41 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class ZapatoSizePreview extends StatelessWidget {
-  const ZapatoSizePreview({Key? key}) : super(key: key);
+  final bool? fullscreen;
+  const ZapatoSizePreview({Key? key, this.fullscreen = false });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-      child: Container(
-        width: double.infinity,
-        height: 360,
-        decoration: BoxDecoration(
-          color: const Color(0xffffcf53),
-          borderRadius: BorderRadius.circular(50),
-        ),
-        child: Column(
-          children: [
-            // Zapato con sombra
-            _ZapatoConSombra(),
-
-            _TallasZapato(),
-          ],
+    return GestureDetector(
+      onTap: () {
+        if(!fullscreen!) {
+          Navigator.of(context).pushNamed('zapatodesc');
+        }
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: (fullscreen!) ? 60 : 60, 
+          vertical: (fullscreen!) ? 0 : 5,
+          
+          ),
+        child: Container(
+          width: double.infinity,
+          height: (fullscreen!) ? 430 : 460,
+          decoration: BoxDecoration(
+            color: const Color(0xffffcf53),
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: Column(
+            children: [
+              // Zapato con sombra
+              _ZapatoConSombra(),
+    
+               if (!fullscreen!)
+               // BounceInUp(child: _TallasZapato()),
+               BounceInUp(child: _TallasZapato()),
+            ],
+          ),
         ),
       ),
     );
@@ -96,7 +111,7 @@ class _ZapatoConSombra extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(30),
+      padding: const EdgeInsets.all(60),
       child: Stack(
         children: [
           Positioned(

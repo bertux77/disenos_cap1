@@ -1,6 +1,7 @@
 import 'package:cap1/src/labs/slideshow_page.dart';
 import 'package:cap1/src/pages/home_hero_page.dart';
 import 'package:cap1/src/pages/home_page.dart';
+import 'package:cap1/src/pages/zapato_desc_page.dart';
 import 'package:cap1/src/pages/zapato_page.dart';
 import 'package:cap1/src/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         'cuadrado': (_) => const AnimacionesPage(),
         'emergency': (_) => EmergencyPage(),
         'zapato': (_) => ZapatoPage(),
+        'zapatodesc': (_) => ZapatoDescPage(),
       },
     );
   }
