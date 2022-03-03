@@ -1,6 +1,5 @@
-import 'package:cap1/src/labs/slideshow_page.dart';
+import 'package:cap1/src/models/zapato_model.dart';
 import 'package:cap1/src/pages/home_hero_page.dart';
-import 'package:cap1/src/pages/home_page.dart';
 import 'package:cap1/src/pages/zapato_desc_page.dart';
 import 'package:cap1/src/pages/zapato_page.dart';
 import 'package:cap1/src/theme/theme.dart';
@@ -8,8 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:cap1/src/pages/pages.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(ChangeNotifierProvider(
-      create: (_) => ThemeChanger(1),
+void main() => runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create:(_) => ThemeChanger(1),),
+        ChangeNotifierProvider(create:(_) => ZapatoModel(),)
+      ],
       child: const MyApp(),
     ));
 

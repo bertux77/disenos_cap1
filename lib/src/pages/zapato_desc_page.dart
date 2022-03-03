@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:cap1/src/models/zapato_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/widgets.dart';
 
@@ -114,12 +116,12 @@ class _ColoresYmas extends StatelessWidget {
               child: Stack(
             children: const [
               Positioned(
-                  left: 90, child: _BotonColor(color: Colors.red, index: 4)),
+                  left: 90, child: _BotonColor(color: Colors.black26, index: 4)),
               Positioned(
-                  left: 60, child: _BotonColor(color: Colors.yellow, index: 3)),
+                  left: 60, child: _BotonColor(color: Colors.lightGreen, index: 3)),
               Positioned(
-                  left: 30, child: _BotonColor(color: Colors.blue, index: 2)),
-              _BotonColor(color: Colors.green, index: 1),
+                  left: 30, child: _BotonColor(color: Colors.purple, index: 2)),
+              _BotonColor(color: Colors.green , index: 1),
             ],
           )),
 
@@ -147,12 +149,32 @@ class _BotonColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return FadeInLeft(
       delay: Duration(milliseconds: index! * 200),
-      child: Container(
-        width: 45,
-        height: 45,
-        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+      child: GestureDetector(
+        onTap: () {
+          switch (index) {
+            case 1: // verde 
+              Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/verde.png';
+              break;
+            case 2: // azul
+              Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/azul.png';
+              break;
+            case 3: // amarillo
+               Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/amarillo.png';
+              break;
+            case 4: // rojo
+              Provider.of<ZapatoModel>(context, listen: false).assetImage = 'assets/negro.png';
+              break;
+            default:
+          }
+        },
+        child: Container(
+          width: 45,
+          height: 45,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        ),
       ),
     );
   }
