@@ -1,17 +1,15 @@
 import 'package:cap1/src/labs/slideshow_page.dart';
 import 'package:cap1/src/pages/home_hero_page.dart';
 import 'package:cap1/src/pages/home_page.dart';
+import 'package:cap1/src/pages/zapato_page.dart';
 import 'package:cap1/src/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:cap1/src/pages/pages.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(
-  
-  ChangeNotifierProvider(
-    create: (_) => ThemeChanger(2),
-    child: const MyApp(),
-    
+void main() => runApp(ChangeNotifierProvider(
+      create: (_) => ThemeChanger(1),
+      child: const MyApp(),
     ));
 
 class MyApp extends StatelessWidget {
@@ -25,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
       //home: EmergencyPage(),
-      initialRoute: 'home',
+      initialRoute: 'zapato',
       routes: {
         'home': (_) => HomeHeroPage(),
         'twitter': (_) => TwitterPage(),
@@ -38,6 +36,7 @@ class MyApp extends StatelessWidget {
         'animate_do': (_) => AnimateDoPage(),
         'cuadrado': (_) => const AnimacionesPage(),
         'emergency': (_) => EmergencyPage(),
+        'zapato': (_) => ZapatoPage(),
       },
     );
   }

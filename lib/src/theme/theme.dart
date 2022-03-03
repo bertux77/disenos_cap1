@@ -4,19 +4,23 @@ class ThemeChanger with ChangeNotifier {
   bool _darkTheme = false;
   bool _customTheme = false;
 
-  late ThemeData _currentTheme = ThemeData.light();
+  final ThemeData customLight = ThemeData.light().copyWith(
+      colorScheme: ColorScheme.dark()
+          .copyWith(background: Colors.white, secondary: Colors.blue));
+
+  late ThemeData _currentTheme = customLight;
 
   bool get darkTheme => _darkTheme;
   bool get customTheme => _customTheme;
 
   ThemeData get currentTheme => _currentTheme;
 
-  ThemeChanger(int theme){
+  ThemeChanger(int theme) {
     switch (theme) {
       case 1: //light
         _darkTheme = false;
         _customTheme = false;
-        _currentTheme = ThemeData.light();
+        _currentTheme = customLight;
         break;
       case 2: // Dark
         _darkTheme = true;
@@ -27,46 +31,38 @@ class ThemeChanger with ChangeNotifier {
         _darkTheme = false;
         _customTheme = true;
         _currentTheme = ThemeData.dark().copyWith(
-          colorScheme: ColorScheme.dark().copyWith(
-            background: Color(0xff16202b),
-            secondary: Colors.red)
-
-        );
+            colorScheme: ColorScheme.dark().copyWith(
+                background: Color(0xff16202b), secondary: Colors.red));
         break;
-          
+
       default:
         _darkTheme = false;
         _customTheme = false;
-        _currentTheme = ThemeData.light();
+        _currentTheme = customLight;
         break;
-
-      
     }
   }
 
-  set darkTheme (bool value) {
+  set darkTheme(bool value) {
     _customTheme = false;
     _darkTheme = value;
 
-    if(value){
+    if (value) {
       _currentTheme = ThemeData.dark();
     } else {
-      _currentTheme = ThemeData.light();
+      _currentTheme = customLight;
     }
     notifyListeners();
   }
 
-  set customTheme (bool value) {
+  set customTheme(bool value) {
     _darkTheme = false;
     _customTheme = value;
 
-    if(value){
+    if (value) {
       _currentTheme = ThemeData.dark().copyWith(
-          colorScheme: ColorScheme.dark().copyWith(
-            background: Color(0xff16202b),
-            secondary: Colors.red)
-
-        );
+          colorScheme: ColorScheme.dark()
+              .copyWith(background: Color(0xff16202b), secondary: Colors.red));
     } else {
       _currentTheme = ThemeData.light();
     }
