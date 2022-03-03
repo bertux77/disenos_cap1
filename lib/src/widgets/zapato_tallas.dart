@@ -3,25 +3,24 @@ import 'package:flutter/material.dart';
 
 class ZapatoSizePreview extends StatelessWidget {
   final bool? fullscreen;
-  const ZapatoSizePreview({Key? key, this.fullscreen = false });
+  const ZapatoSizePreview({Key? key, this.fullscreen = false});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if(!fullscreen!) {
+        if (!fullscreen!) {
           Navigator.of(context).pushNamed('zapatodesc');
         }
       },
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: (fullscreen!) ? 60 : 60, 
-          vertical: (fullscreen!) ? 0 : 5,
-          
-          ),
+          horizontal: (fullscreen!) ? 10 : 20,
+          vertical: (fullscreen!) ? 0 : 0,
+        ),
         child: Container(
           width: double.infinity,
-          height: (fullscreen!) ? 430 : 460,
+          height: (fullscreen!) ? 300 : 350,
           decoration: BoxDecoration(
             color: const Color(0xffffcf53),
             borderRadius: BorderRadius.circular(50),
@@ -30,10 +29,10 @@ class ZapatoSizePreview extends StatelessWidget {
             children: [
               // Zapato con sombra
               _ZapatoConSombra(),
-    
-               if (!fullscreen!)
-               // BounceInUp(child: _TallasZapato()),
-               BounceInUp(child: _TallasZapato()),
+
+              if (!fullscreen!)
+                // BounceInUp(child: _TallasZapato()),
+                BounceInUp(child: _TallasZapato()),
             ],
           ),
         ),
