@@ -130,12 +130,10 @@ class HomeHeroPage extends StatelessWidget {
             ),
             SliverList(
               delegate: SliverChildListDelegate([
-                ...items,
-
-                //...items,
                 const SizedBox(
-                  height: 70,
-                )
+                  height: 20,
+                ),
+                ...items,
               ]),
             ),
           ],

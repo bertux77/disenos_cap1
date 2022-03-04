@@ -1,5 +1,6 @@
 import 'package:cap1/src/models/zapato_model.dart';
 import 'package:cap1/src/pages/home_hero_page.dart';
+import 'package:cap1/src/pages/reproductor_page.dart';
 import 'package:cap1/src/pages/zapato_desc_page.dart';
 import 'package:cap1/src/pages/zapato_page.dart';
 import 'package:cap1/src/theme/theme.dart';
@@ -10,7 +11,7 @@ import 'package:provider/provider.dart';
 void main() => runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ThemeChanger(1),
+          create: (_) => ThemeChanger(4),
         ),
         ChangeNotifierProvider(
           create: (_) => ZapatoModel(),
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Diseños APP',
       //home: EmergencyPage(),
-      initialRoute: 'home',
+      initialRoute: 'reproductor',
       routes: {
         'home': (_) => HomeHeroPage(),
         'twitter': (_) => TwitterPage(),
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
         'cuadrado': (_) => const AnimacionesPage(),
         'emergency': (_) => EmergencyPage(),
         'zapato': (_) => ZapatoPage(),
-        'zapatodesc': (_) => ZapatoDescPage(),
+        'zapatodesc': (_) => const ZapatoDescPage(),
+        'reproductor': (_) => ReproductorPage(),
       },
     );
   }

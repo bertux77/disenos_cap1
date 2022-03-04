@@ -29,7 +29,6 @@ class BotonGordo extends StatelessWidget {
           PageRouteBuilder(
               transitionDuration: Duration(milliseconds: 1000),
               pageBuilder: (_, __, ___) => url)),
-     
       child: Hero(
         tag: id,
         child: Stack(
@@ -43,8 +42,8 @@ class BotonGordo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 110,
-                  width: 35,
+                  height: 90,
+                  width: 30,
                 ),
                 FaIcon(
                   icon,
@@ -57,7 +56,10 @@ class BotonGordo extends StatelessWidget {
                 Expanded(
                   child: Text(
                     texto,
-                    style: const TextStyle(color: Colors.white, fontSize: 18, decoration: TextDecoration.none),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        decoration: TextDecoration.none),
                   ),
                 ),
                 const FaIcon(
@@ -108,8 +110,8 @@ class _BotonGordoBackground extends StatelessWidget {
         ),
       ),
       width: double.infinity,
-      height: 80,
-      margin: const EdgeInsets.all(10),
+      height: 70,
+      margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(

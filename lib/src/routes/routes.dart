@@ -1,4 +1,5 @@
 import 'package:cap1/src/pages/pages.dart';
+import 'package:cap1/src/pages/zapato_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,6 +17,7 @@ final pageRoutes = <_Route>[
   _Route(FontAwesomeIcons.square, 'Cuadrado en Movimiento', AnimacionesPage()),
   _Route(FontAwesomeIcons.solidArrowAltCircleLeft,
       'Botones Gordos con deslizamientos', EmergencyPage()),
+  _Route(FontAwesomeIcons.shoePrints, 'Shop Shoes Love', ZapatoPage()),
 ];
 
 class _Route {

@@ -8,7 +8,7 @@ class ThemeChanger with ChangeNotifier {
       colorScheme: ColorScheme.dark()
           .copyWith(background: Colors.white, secondary: Colors.blue));
 
-  late ThemeData _currentTheme = customLight;
+  late ThemeData _currentTheme = miTema;
 
   bool get darkTheme => _darkTheme;
   bool get customTheme => _customTheme;
@@ -33,6 +33,11 @@ class ThemeChanger with ChangeNotifier {
         _currentTheme = ThemeData.dark().copyWith(
             colorScheme: ColorScheme.dark().copyWith(
                 background: Color(0xff16202b), secondary: Colors.red));
+        break;
+      case 4: // Theme Custom
+        _darkTheme = false;
+        _customTheme = false;
+        _currentTheme = miTema;
         break;
 
       default:
@@ -69,3 +74,9 @@ class ThemeChanger with ChangeNotifier {
     notifyListeners();
   }
 }
+
+//TEMA DARK REPRODUCTOR MUSICA
+final miTema = ThemeData.dark().copyWith(
+    scaffoldBackgroundColor: Color(0xff201E28),
+    // scaffoldBackgroundColor: Color(0xff40404C),
+    iconTheme: IconThemeData(color: Colors.white.withOpacity(0.3)));
