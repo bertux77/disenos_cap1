@@ -1,5 +1,8 @@
 import 'package:cap1/src/pages/pages.dart';
+import 'package:cap1/src/pages/reproductor_page.dart';
+import 'package:cap1/src/pages/transitions_page.dart';
 import 'package:cap1/src/pages/zapato_page.dart';
+import 'package:cap1/src/routes/routes.dart';
 import 'package:cap1/src/theme/theme.dart';
 import 'package:cap1/src/widgets/boton_gordo.dart';
 import 'package:cap1/src/widgets/drawer_menu.dart';
@@ -13,87 +16,9 @@ class HomeHeroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context);
-    final items = [
-      BotonGordo(
-          icon: FontAwesomeIcons.twitter,
-          texto: 'Twitter Animation',
-          color1: Color(0xff56CCF2),
-          color2: Color(0xff2F80ED),
-          url: TwitterPage(),
-          id: '1'),
-      BotonGordo(
-          icon: FontAwesomeIcons.angleDoubleDown,
-          texto: 'Sliver Header Pegado',
-          color1: Color(0xff556270),
-          color2: Color(0xffFF6B6B),
-          url: SliverListPage(),
-          id: '2'),
-      BotonGordo(
-          icon: FontAwesomeIcons.images,
-          texto: 'Sliders DOTS',
-          color1: Color(0xffF2D572),
-          color2: Color(0xffE06AA3),
-          url: Slides2ShowPage(),
-          id: '3'),
-      BotonGordo(
-          icon: FontAwesomeIcons.pinterest,
-          texto: 'Pinterest Grid',
-          color1: Color(0xff3c1053),
-          color2: Color(0xffad5389),
-          url: PinterestPage(),
-          id: '4'),
-      BotonGordo(
-          icon: FontAwesomeIcons.dog,
-          texto: 'Animaciones DOG',
-          color1: Color(0xff33001b),
-          color2: Color(0xffff0084),
-          url: NavegacionPage(),
-          id: '5'),
-      const BotonGordo(
-          icon: FontAwesomeIcons.angleUp,
-          texto: 'Headers diferentes',
-          color1: Color(0xff66A9F2),
-          color2: Color(0xff536CF6),
-          url: HeadersPage2(),
-          id: '6'),
-      const BotonGordo(
-          icon: FontAwesomeIcons.circleNotch,
-          texto: 'Graficas Circulares',
-          color1: Color(0xffc012ff),
-          color2: Color(0xff6d05e8),
-          url: GraficasCircularesPage(),
-          id: '7'),
-      BotonGordo(
-          icon: FontAwesomeIcons.penFancy,
-          texto: 'Animaciones Animate_Do',
-          color1: Color(0xff317183),
-          color2: Color(0xff46997D),
-          url: AnimateDoPage(),
-          id: '8'),
-      const BotonGordo(
-          icon: FontAwesomeIcons.square,
-          texto: 'Cuadrado en Movimiento',
-          color1: Color(0xff6989F5),
-          color2: Color(0xff906EF5),
-          url: AnimacionesPage(),
-          id: '9'),
-      BotonGordo(
-          icon: FontAwesomeIcons.solidArrowAltCircleLeft,
-          texto: 'Botones con deslizamientos',
-          color1: Color(0xffF37335),
-          color2: Color(0xffFDC830),
-          url: EmergencyPage(),
-          id: '10'),
-      BotonGordo(
-          icon: FontAwesomeIcons.shoePrints,
-          texto: 'Shop Shoes Love',
-          color1: Color(0xffcb2d3e),
-          color2: Color(0xffef473a),
-          url: ZapatoPage(),
-          id: '11'),
-    ];
 
-    List<Widget> itemMap = items
+    // CREA UNA LISTA DE BOTONES AÑADIENDO FADEINRIGHT
+    List<Widget> itemMap = listaBotones // Lista con fadein
         .map(
           (item) => FadeInRight(
             duration: const Duration(milliseconds: 400),
@@ -133,7 +58,7 @@ class HomeHeroPage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                ...items,
+                ...itemMap,
               ]),
             ),
           ],

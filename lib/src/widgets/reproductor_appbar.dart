@@ -10,18 +10,30 @@ class ReproductorAppBar extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(top: 30),
         padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Row(children: const [
-          Icon(FontAwesomeIcons.chevronLeft),
-          Spacer(),
-          Icon(FontAwesomeIcons.commentAlt),
-          SizedBox(
+        child: Row(children: [
+          Icon(
+            FontAwesomeIcons.chevronLeft,
+            color: Colors.white.withOpacity(0.6),
+          ),
+          const Spacer(),
+          Icon(
+            FontAwesomeIcons.commentAlt,
+            color: Colors.white.withOpacity(0.6),
+          ),
+          const SizedBox(
             width: 20,
           ),
-          Icon(FontAwesomeIcons.headphonesAlt),
-          SizedBox(
+          Icon(
+            FontAwesomeIcons.headphonesAlt,
+            color: Colors.white.withOpacity(0.6),
+          ),
+          const SizedBox(
             width: 20,
           ),
-          Icon(FontAwesomeIcons.externalLinkAlt)
+          Icon(
+            FontAwesomeIcons.externalLinkAlt,
+            color: Colors.white.withOpacity(0.6),
+          )
         ]),
       ),
     );

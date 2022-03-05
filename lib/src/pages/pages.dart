@@ -9,3 +9,6 @@ export 'package:cap1/src/pages/slideshow_page.dart';
 export 'package:cap1/src/pages/sliver_list_page.dart';
 export 'package:cap1/src/pages/twitter_page.dart';
 
+export 'package:cap1/src/pages/reproductor_page.dart';
+export 'package:cap1/src/pages/transitions_page.dart';
+export 'package:cap1/src/pages/zapato_page.dart';
